@@ -5,7 +5,7 @@ alfavit = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H', 8: 'I
            49: 'Ц', 50: 'Ч', 51: 'Ш', 52: 'Щ', 53: 'Ъ', 54: 'Ы', 55: 'Ь', 56: 'Э', 57: 'Ю', 58: 'Я', 59: 'А', 60: 'Б',
            61: 'В', 62: 'Г', 63: 'Д', 64: 'Е', 65: 'Ё', 66: 'Ж', 67: 'З', 68: 'И', 69: 'Й', 70: 'К', 71: 'Л', 72: 'М',
            73: 'Н', 74: 'О', 75: 'П', 76: 'Р', 77: 'С', 78: 'Т', 79: 'У', 80: 'Ф', 81: 'Х', 82: 'Ц', 83: 'Ч', 84: 'Ш',
-           85: 'Щ', 86: 'Ъ', 87: 'Ы', 88: 'Ь', 89: 'Э', 90: 'Ю', 91: 'Я', 99: " "}
+           85: 'Щ', 86: 'Ъ', 87: 'Ы', 88: 'Ь', 89: 'Э', 90: 'Ю', 91: 'Я', 92: " "}
 
 
 def get_key(dictionary: dict, s: str) -> int:
@@ -33,16 +33,17 @@ def append_to_size(word: str, length: int):
 
 
 def сaesar(is_encode: bool) -> str:
-    word = input("Введите слово: ")
-    key = input("Введите ключ (цифру): ")
+    print("Введите слово")
+    word = input()
+    print("Введите ключ (цифру)")
+    key = input()
     # кол-во сдвига
     n = int(key) if is_encode else -int(key)
     encode = ""
     for char in word:
         index = get_key(alfavit, char.upper())
         new_index = (index + n) % len(alfavit)
-        print(index)
-        print(new_index)
+        print(f"{index} | {new_index}")
 
         encode += alfavit[new_index]
 
